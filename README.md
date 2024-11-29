@@ -1,3 +1,3 @@
-# Prod Branch
+# Stage Branch
 
-The prod branch contains the software that runs on production.
+The stage branch contains software that runs on internal test system and should be use by testers.
