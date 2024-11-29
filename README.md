@@ -1,3 +1,3 @@
-# Prod Branch
+# Dev Branch
 
-The prod branch contains the software that runs on production.
+The dev branch contains the software on which developers work on.
