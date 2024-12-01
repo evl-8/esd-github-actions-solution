@@ -14,7 +14,7 @@ defaults:
 
 jobs:
   build:
-    runs-on: ["self-hosted", "Linux"]
+    runs-on: ["self-hosted", "ubuntu-latest"]
 
     steps:
     - uses: actions/checkout@v4
@@ -38,7 +38,7 @@ jobs:
     
 
   verify:
-    runs-on: ["self-hosted", "Linux"]
+    runs-on: ["self-hosted", "ubuntu-latest"]
     needs: build
     steps:
       - name: Set up JDK 17
@@ -61,7 +61,7 @@ jobs:
           path: .
 
   publish:
-    runs-on: ["self-hosted", "Linux"]
+    runs-on: ["self-hosted", "ubuntu-latest"]
     needs: verify
     steps:
       - name: Set up JDK 17
