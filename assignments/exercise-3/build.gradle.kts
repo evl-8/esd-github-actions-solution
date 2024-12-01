@@ -41,14 +41,13 @@ publishing {
     repositories {
         maven {
             // change to point to your repo, e.g. http://my.org/repo
-            url = uri("http://localhost:8081/nexus/content/repositories/snapshots/")
+            url = uri("http://nexus:8081/nexus/content/repositories/snapshots/")
             name = "dockerRepo"
             credentials(PasswordCredentials::class)
             isAllowInsecureProtocol = true
         }
     }
 }
-
 
 testing {
     suites {
