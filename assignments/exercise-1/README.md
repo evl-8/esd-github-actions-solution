@@ -1,6 +1,6 @@
 # Exercise 1
 
-1. Fork this repository
+1. Fork https://github.com/evl-8/esd-github-actions-assignment
 2. Go to repository `Settings > Actions > Runners` and click on `New self-hosted-runner`
 3. Select Linux and scroll down to `Configure` section.
 4. Extract `--url <url>` and `--token <token>` 
