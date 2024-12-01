@@ -7,7 +7,7 @@ Each task we will incrementally enhance the workflow.
 
 The goal of this step is to build the Java app using a job.
 
-### Non-functional requirements
+### Requirements
 - The workflow name should be "Java CI with Gradle"
 - The workflow must run when pushing to branch "dev"
 - The job must be called "build"
@@ -21,6 +21,8 @@ The goal of this step is to build the Java app using a job.
 - Upload the results as artifacts
 
 > [!TIP]
+> Set a default working directory 
+> 
 > ```
 > defaults:
 >   run:
@@ -40,7 +42,7 @@ The goal of this step is to build the Java app using a job.
 Now that the app is build, we need to verify the code.
 Verify means running tests and checkstyle.
 
-### Non-functional requirements
+### Requirements
  - The job should run on your self hosted runner
  - The job must be called "verify"
  - The job must depend on "build"
@@ -57,7 +59,7 @@ Verify means running tests and checkstyle.
 
 In this job, we will upload our final Jar to a nexus repository server
 
-### Non-functional requirements
+### Requirements
  - The job must run on your self hosted runner
  - The job must be named "publish"
  - The job must depend on "verify"
@@ -78,3 +80,13 @@ In this job, we will upload our final Jar to a nexus repository server
 - Execute `./gradlew publish` and add ```env:
           ORG_GRADLE_PROJECT_dockerRepoUsername: ${{ secrets.REPO_USERNAME }}
           ORG_GRADLE_PROJECT_dockerRepoPassword: ${{ secrets.REPO_PASSWORD }}```
+
+## Making a pull request
+
+### Requirements
+
+- The workflow should run when pushing on branch "prod", "dev" and "stage"
+- The workflow should run when making a pull request on branch "prod", "dev" and "stage"
+
+
+- Create a pull request from `dev` 
