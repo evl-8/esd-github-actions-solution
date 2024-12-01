@@ -88,5 +88,6 @@ In this job, we will upload our final Jar to a nexus repository server
 - The workflow should run when pushing on branch "prod", "dev" and "stage"
 - The workflow should run when making a pull request on branch "prod", "dev" and "stage"
 
-
-- Create a pull request from `dev` 
+- Create a pull request from `dev` into `stage`
+- Wait for all Github actions and `Merge pull request`
+- Do the same for `stage` into prod
