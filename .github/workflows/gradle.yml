@@ -57,7 +57,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: build-artifact
+          name: verify-artifact
           path: .
 
   publish:
@@ -72,8 +72,8 @@ jobs:
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
-          name: build-artifact
-      - name: Publish libray
+          name: verify-artifact
+      - name: Publish library
         env:
           ORG_GRADLE_PROJECT_dockerRepoUsername: ${{ secrets.REPO_USERNAME }}
           ORG_GRADLE_PROJECT_dockerRepoPassword: ${{ secrets.REPO_PASSWORD }}
