@@ -49,7 +49,6 @@ publishing {
     }
 }
 
-
 testing {
     suites {
         // Configure the built-in test suite
