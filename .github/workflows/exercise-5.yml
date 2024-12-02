@@ -1,0 +1,46 @@
+name: Test and Comment
+
+on:
+  push:
+    branches:
+      - main
+      - prod
+      - dev
+      - stage
+
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set Up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Compile Project
+        run: mvn compile
+
+      - name: Run Unit Tests
+        run: mvn test
+
+      - name: Post Success Comment
+        if: ${{ success() }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const commit_sha = context.sha;
+            await github.repos.createCommitComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              commit_sha: commit_sha,
+              body: '✅ All unit tests passed successfully!',
+            });

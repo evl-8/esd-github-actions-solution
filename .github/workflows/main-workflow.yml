@@ -1,0 +1,16 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - prod
+      - dev
+      - stage
+
+
+jobs:
+  call-ci:
+    uses: ./.github/workflows/ci.yml
+    with:
+      node-version: '14'
