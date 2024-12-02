@@ -20,6 +20,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: ${{ inputs.java-version }}
+          distribution: 'temurin'
 
       - name: Install Dependencies
         run: mvn compile
