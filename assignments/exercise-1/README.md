@@ -13,7 +13,7 @@
 You have now created a Github actions runner!  
 It should look like the picture beneath.
 The name is the Container ID of the running docker instance.
-
+retretet
 ![](../images/github_actions_runner.png)
 
 ---
