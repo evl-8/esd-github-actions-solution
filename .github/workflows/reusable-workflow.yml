@@ -3,8 +3,8 @@ name: Reusable CI Workflow
 on:
   workflow_call:
     inputs:
-      node-version:
-        description: 'Node.js version to use'
+      java-version:
+        description: 'java version to use'
         required: true
         type: string
 
