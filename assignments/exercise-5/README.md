@@ -38,7 +38,8 @@ In the `.github/workflows/` directory, create a new file named `exercise-5.yml`.
        
            ```
            to check if the tests have passed.
-        6. **Post a Comment on the Commit**:  
+        6. **Set location of the project**: 
+        7. **Post a Comment on the Commit**:  
            Use `actions/github-script@v6` to post a comment indicating success.
            with this code:
         ```yaml
@@ -60,13 +61,5 @@ In the `.github/workflows/` directory, create a new file named `exercise-5.yml`.
 3. **Check the Commit for the Comment**:  
    Navigate to the commit to verify if a comment has been posted indicating that the tests passed.
 
-## Tips
-
-### Permissions
-Ensure your workflow has the necessary permissions to post comments by including:
-    
-    
-        permissions:
-            contents: write
 
 [Next Exercise](../exercise-6/README.md)
