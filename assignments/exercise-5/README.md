@@ -39,13 +39,14 @@ In the `.github/workflows/` directory, create a new file named `exercise-5.yml`.
            ```
            to check if the tests have passed.
         6. **Set location of the project**: 
+            use 
         7. **Post a Comment on the Commit**:  
            Use `actions/github-script@v6` to post a comment indicating success.
            with this code:
         ```yaml
         with:
             script: |
-              const commit_sha = context.payload.head_commit.id; // Use the correct commit SHA
+              const commit_sha = context.payload.head_commit.id;
               await github.rest.repos.createCommitComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
