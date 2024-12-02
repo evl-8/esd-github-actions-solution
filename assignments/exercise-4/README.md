@@ -28,9 +28,10 @@ The `index.html` file is already provided in the `exercise` folder.
 ---
 
 ### 4. Set Up GitHub Pages
-
-1. Go to your repository **Settings**.
-2. Under **Pages**, set the source to the `gh-pages` branch.
+1. Create a branch with the name **gh-pages** if not present
+2. Go to your repository **Settings**.
+3. Select **Pages** and select the **Source** to be Deploy from a branch
+4. Set the branch to the `gh-pages` branch with root.
 
 ---
 
