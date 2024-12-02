@@ -13,4 +13,4 @@ jobs:
   call-ci:
     uses: ./.github/workflows/reusable-workflow.yml
     with:
-      node-version: '14'
+      java-version: '17'

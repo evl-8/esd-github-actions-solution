@@ -16,10 +16,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Set Up Node.js
-        uses: actions/setup-node@v3
+      - name: Set Up Java
+        uses: actions/setup-java@v3
         with:
-          node-version: ${{ inputs.node-version }}
+          node-version: ${{ inputs.java-version }}
 
       - name: Install Dependencies
         run: mvn compile
