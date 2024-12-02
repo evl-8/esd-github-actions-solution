@@ -23,6 +23,8 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+        working-directory: assignments/exercise-5
 
       - name: Run Tests
         run: npm test
+        working-directory: assignments/exercise-5
