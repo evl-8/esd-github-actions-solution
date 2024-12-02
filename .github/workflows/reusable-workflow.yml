@@ -19,7 +19,7 @@ jobs:
       - name: Set Up Java
         uses: actions/setup-java@v3
         with:
-          node-version: ${{ inputs.java-version }}
+          java-version: ${{ inputs.java-version }}
 
       - name: Install Dependencies
         run: mvn compile
