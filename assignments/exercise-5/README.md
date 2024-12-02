@@ -12,44 +12,45 @@ In the `.github/workflows/` directory, create a new file named `exercise-5.yml`.
 
 ### 3. Configure the Workflow
 - **Name the Workflow**: `"Test and Comment"`.
-- **Trigger the Workflow**: Set it to run on `push` events.
-  - **Add the Following Steps**:
-      1. **Checkout the Repository Code**:  
-         Use `actions/checkout@v3`.
-      2. **Set Up JDK**:  
-         Use `actions/setup-java@v3` to set up JDK (e.g., Java 17).
-      3. **Compile Project**:  
-         Run:
-         ```bash
-         mvn compile
-         ```
-      4. **Run Unit Tests**:  
-         Execute:
-         ```bash
-         mvn test
-         ```
-      5. **Implement Conditional Logic**:  
-         Use:
-         ```yaml
-         if: ${{ success() }}
-         ...
-         ...
-         ...
+  - **Trigger the Workflow**: Set it to run on `push` events.
+    - **Add the Following Steps**:
+        1. **Checkout the Repository Code**:  
+           Use `actions/checkout@v3`.
+        2. **Set Up JDK**:  
+           Use `actions/setup-java@v3` to set up JDK (e.g., Java 17).
+        3. **Compile Project**:  
+           Run:
+           ```bash
+           mvn compile
+           ```
+        4. **Run Unit Tests**:  
+           Execute:
+           ```bash
+           mvn test
+           ```
+        5. **Implement Conditional Logic**:  
+           Use:
+           ```yaml
+           if: ${{ success() }}
+           ...
+           ...
+           ...
        
-         ```
-         to check if the tests have passed.
-      6. **Post a Comment on the Commit**:  
-         Use `actions/github-script@v6` to post a comment indicating success.
-         with this code:
-      ```yaml
-      script: |
-        const commit_sha = context.sha;
-        await github.repos.createCommitComment({
-        owner: context.repo.owner,
-        repo: context.repo.repo,
-        commit_sha: commit_sha,
-        body: '✅ All unit tests passed successfully!',
-        });
+           ```
+           to check if the tests have passed.
+        6. **Post a Comment on the Commit**:  
+           Use `actions/github-script@v6` to post a comment indicating success.
+           with this code:
+        ```yaml
+        with:
+            script: |
+              const commit_sha = context.payload.head_commit.id; // Use the correct commit SHA
+              await github.rest.repos.createCommitComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                commit_sha: commit_sha,
+                body: '✅ All unit tests passed successfully!',
+              });
 
 ### 4. Verify the Workflow
 1. **Commit and Push Changes**:  
