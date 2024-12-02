@@ -38,10 +38,11 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const commit_sha = context.sha;
-            await github.repos.createCommitComment({
+            const commit_sha = context.payload.head_commit.id; // Use the correct commit SHA
+            await github.rest.repos.createCommitComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               commit_sha: commit_sha,
               body: '✅ All unit tests passed successfully!',
             });
+      
